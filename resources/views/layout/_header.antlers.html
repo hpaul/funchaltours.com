@@ -1,0 +1,46 @@
+{{#
+    @name Header
+    @desc The sites header rendered on each page. Sticky with backdrop blur.
+#}}
+
+<!-- /layout/_header.antlers.html -->
+<header
+    x-data="{ scrolled: window.scrollY > 20 }"
+    @scroll.window.throttle.100ms="scrolled = window.scrollY > 20"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+    :class="scrolled && 'is-scrolled'"
+>
+    <style>
+        .site-header-transparent { background: transparent; }
+        .site-header-transparent .header-logo { color: #7b4591; }
+        .site-header-transparent .nav-link { color: rgba(30,41,59,0.55); }
+        .site-header-transparent .nav-link:hover { color: rgba(30,41,59,0.9); }
+        .site-header-transparent .header-cta { background: transparent; color: rgba(30,41,59,0.7); border: 1px solid rgba(30,41,59,0.15); }
+        .site-header-transparent .header-cta:hover { background: rgba(30,41,59,0.05); color: rgba(30,41,59,0.9); }
+
+        header.is-scrolled { background: rgba(255,252,249,0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+        header.is-scrolled .header-logo { color: #7b4591; }
+        header.is-scrolled .nav-link { color: rgba(30,41,59,0.6); }
+        header.is-scrolled .nav-link:hover { color: #7b4591; }
+        header.is-scrolled .header-cta { background: #7b4591; color: #fff; border: 1px solid transparent; }
+        header.is-scrolled .header-cta:hover { filter: brightness(1.1); }
+    </style>
+
+    <div class="fluid-grid py-4 site-header-transparent">
+        <div class="span-content flex justify-between items-center">
+            {{ partial:components/logo class="header-logo" }}
+
+            <div class="flex items-center gap-6">
+                {{ partial:navigation/main }}
+                <button
+                    type="button"
+                    data-open-form-modal="booking"
+                    class="header-cta hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold transition-all"
+                >
+                    <span>Inquire</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- End: /layout/_header.antlers.html -->

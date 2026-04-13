@@ -1,0 +1,36 @@
+title: 'Features Grid'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Why Funchal Tours?'
+  -
+    handle: subheading
+    field:
+      type: textarea
+      display: Subheading
+  -
+    handle: items
+    field:
+      type: grid
+      display: Items
+      add_row: 'Add feature'
+      fields:
+        -
+          handle: heading
+          field:
+            type: text
+            display: Heading
+        -
+          handle: text
+          field:
+            type: textarea
+            display: Description
+        -
+          handle: icon
+          field:
+            type: text
+            display: Icon
+            instructions: 'Icon keyword: star, shield, heart, compass, camera, leaf'

@@ -1,0 +1,51 @@
+title: 'Discover More'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Want to discover more of Madeira?'
+  -
+    handle: text
+    field:
+      type: textarea
+      display: Text
+  -
+    handle: ideas
+    field:
+      type: grid
+      display: 'Experience Ideas'
+      instructions: 'Short experience ideas shown as browsable items.'
+      add_row: 'Add experience'
+      fields:
+        -
+          handle: title
+          field:
+            type: text
+            display: Title
+            width: 50
+        -
+          handle: description
+          field:
+            type: text
+            display: 'Short description'
+            width: 50
+  -
+    handle: cta_label
+    field:
+      type: text
+      display: 'CTA Label'
+      default: 'Tell us what you want to see'
+  -
+    handle: note
+    field:
+      type: text
+      display: 'Bottom Note'
+      instructions: 'Small text below CTA, e.g. partnership credit.'
+  -
+    handle: background_image_url
+    field:
+      type: text
+      display: 'Background Image URL'
+      instructions: 'Direct path to image in public/.'

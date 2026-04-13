@@ -1,0 +1,9 @@
+title: 'Book now'
+fields:
+  -
+    handle: label
+    field:
+      type: text
+      display: Label
+      instructions: 'Button text. Defaults to "Book now!"'
+      default: 'Book now!'

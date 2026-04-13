@@ -1,0 +1,11 @@
+title: Tours
+template: tours/show
+layout: layout
+revisions: false
+route: '/tours/{slug}'
+sort_dir: asc
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: false

@@ -1,0 +1,14 @@
+title: 'Tour Cards'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Our Tours'
+  -
+    handle: subheading
+    field:
+      type: textarea
+      display: Subheading
+      default: 'Choose your adventure — or let us design one for you.'

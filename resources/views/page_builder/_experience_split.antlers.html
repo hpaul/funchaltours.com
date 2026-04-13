@@ -1,0 +1,76 @@
+{{#
+    @name Experience Split
+    @desc A premium image + text split section to showcase a tour experience.
+    @set page.page_builder.experience_split
+#}}
+
+<!-- /page_builder/_experience_split.antlers.html -->
+<section class="fluid-grid py-16 md:py-24 lg:py-32">
+    <div class="span-content">
+        <div class="flex flex-col {{ block:reverse ? 'lg:flex-row-reverse' : 'lg:flex-row' }} gap-10 lg:gap-16 items-center">
+            {{# Image side #}}
+            <div class="w-full lg:w-1/2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/10">
+                    {{ if block:image }}
+                        <img
+                            src="{{ glide:block:image width="800" height="600" fit="crop" format="webp" quality="85" }}"
+                            alt="{{ block:heading }}"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    {{ elseif block:image_url }}
+                        <img
+                            src="{{ block:image_url }}"
+                            alt="{{ block:heading }}"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    {{ /if }}
+                    {{# Subtle gradient overlay #}}
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                </div>
+            </div>
+
+            {{# Text side #}}
+            <div class="w-full lg:w-1/2">
+                {{ if block:label }}
+                    <span class="inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#7b4591] mb-4">{{ block:label }}</span>
+                {{ /if }}
+
+                {{ if block:heading }}
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05]">{{ block:heading }}</h2>
+                {{ /if }}
+
+                {{ if block:text }}
+                    <p class="mt-5 text-neutral/60 text-lg leading-relaxed">{{ block:text }}</p>
+                {{ /if }}
+
+                {{# Feature pills #}}
+                {{ if block:features | count }}
+                    <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                        {{ block:features }}
+                            <div class="flex flex-col gap-1 p-4 rounded-xl bg-surface border border-neutral/5">
+                                <span class="text-xs text-neutral/40 uppercase tracking-wider font-medium">{{ label }}</span>
+                                <span class="text-sm font-semibold text-neutral-800">{{ value }}</span>
+                            </div>
+                        {{ /block:features }}
+                    </div>
+                {{ /if }}
+
+                {{ if block:cta_label }}
+                    <div class="mt-8">
+                        <button
+                            type="button"
+                            data-open-form-modal="booking"
+                            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#7b4591] text-white font-semibold text-sm shadow-lg shadow-[#7b4591]/20 hover:brightness-110 transition-all"
+                        >
+                            <span>{{ block:cta_label }}</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </button>
+                    </div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: /page_builder/_experience_split.antlers.html -->

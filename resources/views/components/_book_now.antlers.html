@@ -1,0 +1,21 @@
+{{#
+    @name Book now
+    @desc A shimmering CTA button that opens the booking modal.
+    @set page.article.book_now
+#}}
+
+<!-- /components/_book_now.antlers.html -->
+<div class="not-prose span-md flex flex-col items-center gap-3 py-2">
+    <button
+        type="button"
+        data-open-form-modal="booking"
+        class="button button--shimmer"
+    >
+        <svg class="relative w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="relative">{{ label ?? 'Book now!' }}</span>
+    </button>
+    <p class="text-[10px] text-neutral/40 font-medium uppercase tracking-wider text-center">
+        All bookings are requests and subject to final confirmation.
+    </p>
+</div>
+<!-- End: /components/_book_now.antlers.html -->

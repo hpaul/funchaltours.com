@@ -1,0 +1,38 @@
+title: Hero
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Discover Funchal & Madeira'
+      validate:
+        - required
+  -
+    handle: subheading
+    field:
+      type: textarea
+      display: Subheading
+      default: 'Curated tours crafted by local experts — from the flavors of Funchal to the peaks of Madeira.'
+  -
+    handle: cta_label
+    field:
+      type: text
+      display: 'CTA Button Label'
+      default: 'Explore Tours'
+      width: 50
+  -
+    handle: cta_link
+    field:
+      type: link
+      display: 'CTA Link'
+      width: 50
+  -
+    handle: background_image
+    field:
+      type: assets
+      display: 'Background Image'
+      max_files: 1
+      container: images
+      mode: list
+      instructions: 'Optional hero background image. A gradient will be used as fallback.'

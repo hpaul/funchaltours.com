@@ -1,0 +1,139 @@
+title: Tour
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: General
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              input_type: text
+              localizable: true
+              listable: true
+              display: Title
+              validate:
+                - required
+          -
+            handle: excerpt
+            field:
+              type: textarea
+              display: Excerpt
+              instructions: 'Short description shown on tour cards.'
+              localizable: true
+              character_limit: 200
+          -
+            handle: feature_image
+            field:
+              type: assets
+              display: 'Feature Image'
+              max_files: 1
+              container: images
+              mode: list
+      -
+        display: 'Tour Details'
+        fields:
+          -
+            handle: duration
+            field:
+              type: text
+              display: Duration
+              placeholder: 'e.g. Full day (~8 hours)'
+              width: 33
+          -
+            handle: group_size
+            field:
+              type: text
+              display: 'Group Size'
+              placeholder: 'e.g. Up to 8 people'
+              width: 33
+          -
+            handle: meeting_point
+            field:
+              type: text
+              display: 'Meeting Point'
+              placeholder: 'e.g. Hotel pickup included'
+              width: 33
+          -
+            handle: highlights
+            field:
+              type: grid
+              display: Highlights
+              instructions: 'Key tour highlights shown as a feature list.'
+              add_row: 'Add highlight'
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Highlight
+          -
+            handle: includes
+            field:
+              type: grid
+              display: "What's Included"
+              instructions: 'List of inclusions.'
+              add_row: 'Add item'
+              fields:
+                -
+                  handle: text
+                  field:
+                    type: text
+                    display: Item
+      -
+        display: Content
+        fields:
+          -
+            import: page_builder
+  seo:
+    display: SEO
+    sections:
+      -
+        display: Basic
+        instructions: 'Basic SEO settings.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_basic'
+      -
+        display: Advanced
+        instructions: 'Advanced SEO settings.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_advanced'
+      -
+        display: 'Open Graph'
+        instructions: 'Open Graph meta tags for social sharing.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_open_graph'
+      -
+        display: Sitemap
+        instructions: 'Sitemap configuration.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_sitemap'
+      -
+        display: 'JSON-ld Schema'
+        instructions: 'Custom JSON-ld schema objects.'
+        fields:
+          -
+            import: 'statamic-peak-seo::seo_jsonld'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        display: Meta
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate:
+                - required
+              generate: true
+              listable: hidden
+              display: Slug

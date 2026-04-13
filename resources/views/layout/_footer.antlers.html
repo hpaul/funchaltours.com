@@ -1,0 +1,52 @@
+{{#
+    @name Footer
+    @desc The sites footer rendered on each page.
+#}}
+
+<!-- /layout/_footer.antlers.html -->
+<footer class="mt-auto bg-surface border-t border-neutral/5">
+    <div class="fluid-grid py-12">
+        <div class="span-content">
+            <div class="flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
+                <div class="flex flex-col gap-3">
+                    {{ partial:components/logo width="120" }}
+                    <p class="text-sm text-neutral/60 max-w-xs">
+                        Discover the best of Funchal and Madeira with curated tours crafted by local experts.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-4 items-start md:items-end">
+                    {{ if social_media:social_media }}
+                        <div class="flex gap-1">
+                            {{ social_media:social_media }}
+                                <a class="p-2 text-neutral/50 hover:text-primary transition-colors" href="{{ prefix }}{{ handle }}" rel="noopener{{ type == 'mastodon' ?= ' me' }}" aria-label="{{ config:app:name }} {{ trans:strings.on }} {{ type | title }}" target="_blank">
+                                    {{ svg :src="type" attr:class="w-5 h-5 overflow-visible fill-current" attr:alt="" attr:aria-hidden="true" }}
+                                </a>
+                            {{ /social_media:social_media }}
+                        </div>
+                    {{ /if }}
+
+                    <button
+                        type="button"
+                        data-open-form-modal="booking"
+                        class="button button--outline text-xs py-2 px-4"
+                    >
+                        <span>Send an inquiry</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-neutral/5 flex flex-col gap-2 md:flex-row md:justify-between md:items-center text-xs text-neutral/40">
+                <span>
+                    &copy; {{ configuration:copyright_since }}
+                    {{ unless (now | format('Y')) == configuration:copyright_since }}
+                        - {{ now | format('Y') }}
+                    {{ /unless }}
+                    {{ configuration:copyright_name ?? config:app:name }}
+                </span>
+                {{ yield:reset_consent }}
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End: /layout/_footer.antlers.html -->

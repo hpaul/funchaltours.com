@@ -1,0 +1,20 @@
+title: 'CTA Banner'
+fields:
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Ready to explore Madeira?'
+  -
+    handle: text
+    field:
+      type: textarea
+      display: Text
+      default: 'Send us a message with your dates and interests. We''ll get back to you within 24 hours with a personalized suggestion.'
+  -
+    handle: cta_label
+    field:
+      type: text
+      display: 'Button Label'
+      default: 'Send an inquiry'

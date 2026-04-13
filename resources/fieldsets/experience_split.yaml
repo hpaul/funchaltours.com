@@ -1,0 +1,74 @@
+title: 'Experience Split'
+fields:
+  -
+    handle: label
+    field:
+      type: text
+      display: Label
+      instructions: 'Small uppercase label above the heading.'
+      default: 'Our Signature Tour'
+      width: 50
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Funchal Flavors & Peaks'
+  -
+    handle: text
+    field:
+      type: textarea
+      display: Description
+  -
+    handle: features
+    field:
+      type: grid
+      display: Features
+      add_row: 'Add feature'
+      fields:
+        -
+          handle: icon
+          field:
+            type: text
+            display: Icon
+            instructions: 'Icon keyword: clock, users, map-pin, sun, utensils, mountain'
+            width: 33
+        -
+          handle: label
+          field:
+            type: text
+            display: Label
+            width: 33
+        -
+          handle: value
+          field:
+            type: text
+            display: Value
+            width: 33
+  -
+    handle: image
+    field:
+      type: assets
+      display: Image
+      max_files: 1
+      container: images
+      mode: list
+  -
+    handle: image_url
+    field:
+      type: text
+      display: 'Image URL (fallback)'
+      instructions: 'Direct path to image in public/ if not using asset container.'
+  -
+    handle: cta_label
+    field:
+      type: text
+      display: 'CTA Label'
+      default: 'Book This Tour'
+  -
+    handle: reverse
+    field:
+      type: toggle
+      display: 'Reverse Layout'
+      instructions: 'Place image on the left, text on the right.'
+      default: false

@@ -1,0 +1,69 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        instructions: 'Tell us about your ideal Madeira experience and we will craft the perfect tour for you.'
+        fields:
+          -
+            handle: name
+            field:
+              display: Name
+              type: text
+              validate:
+                - required
+                - 'min:2'
+              localizable: true
+              width: 50
+              placeholder: 'Your name'
+          -
+            handle: email
+            field:
+              display: E-mail
+              type: text
+              validate:
+                - required
+                - email
+              localizable: true
+              width: 50
+              placeholder: example@email.com
+          -
+            handle: phone
+            field:
+              display: Phone
+              type: text
+              input_type: tel
+              placeholder: '+351 912 345 678'
+              localizable: true
+              width: 50
+          -
+            handle: tour_dates
+            field:
+              type: text
+              display: 'When are you planning to come to Madeira?'
+              placeholder: 'e.g. June 10–17, 2026'
+          -
+            handle: number_of_people
+            field:
+              min: 1
+              step: 1
+              default: '1'
+              type: integer
+              display: 'Number of people'
+          -
+            handle: message_body
+            field:
+              type: textarea
+              validate:
+                - required
+                - 'min:5'
+              localizable: true
+              display: "Tell us what you'd like to see, do, or experience. Any preferences, dietary needs, or special requests are welcome."
+          -
+            handle: location
+            field:
+              type: text
+              display: "Where are you staying on the island?"
+              instructions: 'Pickup included from Funchal, Canico, Camara de Lobos and Ribeira Brava.'
+              validate:
+                - required

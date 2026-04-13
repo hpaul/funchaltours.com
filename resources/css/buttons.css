@@ -1,0 +1,37 @@
+@layer components {
+    .button {
+        @apply relative inline-flex items-center justify-center gap-2 max-w-full py-3 px-6 bg-primary rounded-full select-none text-white font-semibold text-sm tracking-wide overflow-hidden shadow-lg shadow-primary/20 hover:brightness-110 motion-safe:transition disabled:cursor-not-allowed disabled:opacity-50 focus:outline-primary;
+
+        span {
+            @apply relative min-w-fit text-center leading-none no-underline motion-safe:transition;
+        }
+    }
+
+    .button--shimmer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        border-radius: inherit;
+        pointer-events: none;
+        background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.3) 45%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 55%, transparent 70%);
+        width: 200%;
+        animation: shimmer 4s ease-in-out infinite;
+    }
+
+    .button--accent {
+        @apply bg-accent shadow-accent/20;
+    }
+
+    .button--outline {
+        @apply bg-transparent border border-primary/20 text-primary shadow-none hover:bg-primary-light;
+    }
+
+    .button-inline {
+        @apply inline-flex items-center gap-1 text-neutral hover:text-primary motion-safe:transition;
+
+        span {
+            @apply min-w-fit font-semibold text-current underline decoration-primary/40 underline-offset-4 hover:decoration-primary focus:outline-primary;
+        }
+    }
+}

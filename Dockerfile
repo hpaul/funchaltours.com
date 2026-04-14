@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update \
     && apt-get install -y --no-install-recommends \
        libmagickwand-dev libheif-dev libwebp-dev libde265-dev git openssh-client \
-    && install-php-extensions bcmath pdo_sqlite imagick exif redis \
+    && install-php-extensions bcmath pdo_sqlite imagick gd exif redis \
     && apt-get purge -y \
        libmagickwand-dev libheif-dev libwebp-dev libde265-dev \
     && apt-get autoremove -y

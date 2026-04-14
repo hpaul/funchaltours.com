@@ -62,10 +62,14 @@
                 <div class="span-content">
                     <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
                         <img
-                            src="{{ glide:feature_image width="1400" height="520" fit="crop" format="webp" quality="82" }}"
+                            src="{{ glide:feature_image width="1200" fit="crop_focal" format="webp" quality="78" }}"
+                            srcset="{{ glide:feature_image width='640' fit='crop_focal' format='webp' quality='75' }} 640w, {{ glide:feature_image width='960' fit='crop_focal' format='webp' quality='76' }} 960w, {{ glide:feature_image width='1400' fit='crop_focal' format='webp' quality='78' }} 1400w, {{ glide:feature_image width='2000' fit='crop_focal' format='webp' quality='78' }} 2000w"
+                            sizes="(max-width: 1280px) 100vw, 1280px"
                             alt="{{ title }}"
                             class="w-full h-auto aspect-[21/8] object-cover"
                             fetchpriority="high"
+                            width="1400"
+                            height="534"
                         />
                     </div>
                 </div>
@@ -117,7 +121,9 @@
                         <div class="story-gallery">
                             {{ story_gallery }}
                                 <img
-                                    src="{{ url }}"
+                                    src="{{ glide src="{url}" width='600' format='webp' quality='78' }}"
+                                    srcset="{{ glide src='{url}' width='400' format='webp' quality='75' }} 400w, {{ glide src='{url}' width='600' format='webp' quality='78' }} 600w, {{ glide src='{url}' width='900' format='webp' quality='80' }} 900w"
+                                    sizes="(max-width: 1024px) 50vw, 25vw"
                                     alt="{{ alt ?? basename }}"
                                     class="block w-full rounded-xl mb-3 shadow-sm"
                                     loading="lazy"

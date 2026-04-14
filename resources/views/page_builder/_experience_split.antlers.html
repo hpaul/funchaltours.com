@@ -55,7 +55,16 @@
                         {{ if block:image }}
                             <img src="{{ glide:block:image width="800" height="600" fit="crop" format="webp" quality="85" }}" alt="{{ block:heading }}" class="w-full h-full object-cover" loading="lazy"/>
                         {{ elseif block:image_url }}
-                            <img src="{{ block:image_url }}" alt="{{ block:heading }}" class="w-full h-full object-cover" loading="lazy"/>
+                            <img
+                                src="{{ glide src="{block:image_url}" width='800' fit='crop_focal' format='webp' quality='78' }}"
+                                srcset="{{ glide src='{block:image_url}' width='480' fit='crop_focal' format='webp' quality='75' }} 480w, {{ glide src='{block:image_url}' width='800' fit='crop_focal' format='webp' quality='78' }} 800w, {{ glide src='{block:image_url}' width='1200' fit='crop_focal' format='webp' quality='80' }} 1200w"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                alt="{{ block:heading }}"
+                                class="w-full h-full object-cover"
+                                loading="lazy"
+                                width="800"
+                                height="600"
+                            />
                         {{ /if }}
                     </div>
                 </div>

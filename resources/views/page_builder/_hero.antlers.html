@@ -41,22 +41,34 @@
         </div>
     </div>
 
-    {{ if block:background_image }}
-        <div class="fluid-grid pb-4">
-            <div class="span-content">
-                <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
-                    <img src="{{ glide:block:background_image width="1400" height="520" fit="crop" format="webp" quality="82" }}" alt="Funchal and Madeira" class="w-full h-auto aspect-[21/8] object-cover" fetchpriority="high"/>
-                </div>
+    <div class="fluid-grid pb-4">
+        <div class="span-content">
+            <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
+                {{ if block:background_image }}
+                    <img
+                        src="{{ glide:block:background_image width="1200" fit="crop_focal" format="webp" quality="78" }}"
+                        srcset="{{ glide:block:background_image width='640' fit='crop_focal' format='webp' quality='75' }} 640w, {{ glide:block:background_image width='960' fit='crop_focal' format='webp' quality='76' }} 960w, {{ glide:block:background_image width='1400' fit='crop_focal' format='webp' quality='78' }} 1400w, {{ glide:block:background_image width='2000' fit='crop_focal' format='webp' quality='78' }} 2000w"
+                        sizes="(max-width: 1280px) 100vw, 1280px"
+                        alt="Funchal and Madeira"
+                        class="w-full h-auto aspect-[21/8] object-cover"
+                        fetchpriority="high"
+                        width="1400"
+                        height="534"
+                    />
+                {{ else }}
+                    <img
+                        src="{{ glide:src="images/hero-split-funchal-peaks.png" width='1200' fit='crop_focal' format='webp' quality='78' }}"
+                        srcset="{{ glide:src="images/hero-split-funchal-peaks.png" width='640' fit='crop_focal' format='webp' quality='75' }} 640w, {{ glide:src="images/hero-split-funchal-peaks.png" width='960' fit='crop_focal' format='webp' quality='76' }} 960w, {{ glide:src="images/hero-split-funchal-peaks.png" width='1400' fit='crop_focal' format='webp' quality='78' }} 1400w, {{ glide:src="images/hero-split-funchal-peaks.png" width='2000' fit='crop_focal' format='webp' quality='78' }} 2000w"
+                        sizes="(max-width: 1280px) 100vw, 1280px"
+                        alt="Funchal and Madeira"
+                        class="w-full h-auto aspect-[21/8] object-cover"
+                        fetchpriority="high"
+                        width="1400"
+                        height="534"
+                    />
+                {{ /if }}
             </div>
         </div>
-    {{ else }}
-        <div class="fluid-grid pb-4">
-            <div class="span-content">
-                <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
-                    <img src="/images/hero-split-funchal-peaks.png" alt="Funchal and Madeira" class="w-full h-auto aspect-[21/8] object-cover" fetchpriority="high"/>
-                </div>
-            </div>
-        </div>
-    {{ /if }}
+    </div>
 </section>
 <!-- End: /page_builder/_hero.antlers.html -->

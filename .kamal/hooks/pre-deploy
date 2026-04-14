@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+
+# Stop and remove any existing funchaltours-web containers to free ports
+ssh funchaltours "docker ps -q --filter name=funchaltours-web | xargs -r docker rm -f" || true

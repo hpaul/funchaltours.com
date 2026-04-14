@@ -2,7 +2,7 @@
 id: ae82c954-8908-4303-bb3c-ee1eb78bd552
 title: 'Design Your Tour'
 excerpt: 'Tell us your interests, pace, and style — we''ll craft a private Madeira experience tailored just for you.'
-duration: 'Flexible (half day or full day)'
+duration: Flexible
 group_size: 'Private — your group only'
 meeting_point: 'Hotel pickup included'
 highlights:

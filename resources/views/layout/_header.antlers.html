@@ -4,22 +4,29 @@
 #}}
 
 <!-- /layout/_header.antlers.html -->
-<header
-    x-data="{ scrolled: window.scrollY > 20 }"
-    @scroll.window.throttle.100ms="scrolled = window.scrollY > 20"
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    :class="scrolled && 'is-scrolled'"
->
+{{ if segment_1 }}
+    {{# Inner page: header always shows scrolled state #}}
+    <header
+        x-data
+        class="fixed top-0 left-0 right-0 z-50 is-scrolled"
+    >
+{{ else }}
+    {{# Homepage: header is transparent until scrolled #}}
+    <header
+        x-data="{ scrolled: window.scrollY > 20 }"
+        @scroll.window.throttle.100ms="scrolled = window.scrollY > 20"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+        :class="scrolled && 'is-scrolled'"
+    >
+{{ /if }}
     <style>
         .site-header-transparent { background: transparent; }
-        .site-header-transparent .header-logo { color: #7b4591; }
         .site-header-transparent .nav-link { color: rgba(30,41,59,0.55); }
         .site-header-transparent .nav-link:hover { color: rgba(30,41,59,0.9); }
         .site-header-transparent .header-cta { background: transparent; color: rgba(30,41,59,0.7); border: 1px solid rgba(30,41,59,0.15); }
         .site-header-transparent .header-cta:hover { background: rgba(30,41,59,0.05); color: rgba(30,41,59,0.9); }
 
         header.is-scrolled { background: rgba(255,252,249,0.95); backdrop-filter: blur(12px); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
-        header.is-scrolled .header-logo { color: #7b4591; }
         header.is-scrolled .nav-link { color: rgba(30,41,59,0.6); }
         header.is-scrolled .nav-link:hover { color: #7b4591; }
         header.is-scrolled .header-cta { background: #7b4591; color: #fff; border: 1px solid transparent; }

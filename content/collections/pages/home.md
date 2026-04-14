@@ -15,14 +15,16 @@ page_builder:
     type: hero
     enabled: true
     heading: 'Taste the Old Town. Hike above the clouds.'
-    subheading: 'A curated full-day journey through Funchal''s flavors and Madeira''s most iconic summit trail — with a local guide and a small group of five.'
+    subheading: 'A curated full-day journey through Funchal''s flavors and Madeira''s most iconic summit trail — private or in a small group of up to three.'
     cta_label: 'Explore Tours'
     cta_link: '#tours'
   -
     id: experience-food
     type: experience_split
     enabled: true
-    label: 'Morning Experience'
+    step: '01'
+    label: 'The Old Town'
+    mood: warm
     heading: 'The Flavors of Funchal'
     text: 'Start your day wandering the cobblestone streets of the Old Town and the legendary Mercado dos Lavradores. Taste poncha, bolo do caco, passion fruit, and espetada — the flavors that define Madeira. Your guide weaves in five centuries of history along the way.'
     image_url: '/images/food-madeira-spread.png'
@@ -34,7 +36,7 @@ page_builder:
       -
         icon: users
         label: Group
-        value: 'Max 5'
+        value: 'Up to 3'
       -
         icon: map-pin
         label: Start
@@ -45,9 +47,11 @@ page_builder:
     id: experience-peaks
     type: experience_split
     enabled: true
-    label: 'Afternoon Experience'
-    heading: 'Above the Clouds on PR1'
-    text: 'After a scenic transfer, arrive at Pico do Arieiro at 1,818m. Walk the legendary PR1 trail along knife-edge ridges and through tunnels carved into basalt, connecting Madeira''s third-highest peak to its highest — Pico Ruivo at 1,862m. On clear days, the Atlantic stretches endlessly below.'
+    step: '02'
+    label: 'Above the Clouds'
+    mood: cool
+    heading: 'The PR1 Summit Trail'
+    text: 'After a scenic transfer through the mountains, arrive at Pico do Arieiro at 1,818m. Walk the legendary PR1 trail along knife-edge ridges and through tunnels carved into basalt, connecting Madeira''s third-highest peak to its highest — Pico Ruivo at 1,862m. On clear days, the Atlantic stretches endlessly below.'
     image_url: '/images/pr1-trail-peaks.png'
     features:
       -
@@ -72,8 +76,8 @@ page_builder:
     subheading: 'No buses, no scripts, no crowds. Just a small group, a local who lives here, and a day you''ll actually remember.'
     items:
       -
-        heading: 'Five People, Max'
-        text: 'Big groups ruin everything. We keep it to five so the guide can actually talk to you, the pace stays flexible, and you''re not waiting for strangers to finish their selfies. It''s more like exploring with friends than being on a tour.'
+        heading: 'Private or Three, Max'
+        text: 'Big groups ruin everything. Every tour is either fully private or a small group of up to three — so the guide can actually talk to you, the pace stays flexible, and you''re not waiting for strangers to finish their selfies. It''s more like exploring with friends than being on a tour.'
       -
         heading: 'A Local, Not a Script'
         text: 'Your guide lives on this island. They know which market vendor has the best poncha, which trail gets the clouds at the right time, and which restaurant the tourists haven''t found yet. Plans change on the fly when something better comes up.'

@@ -1,38 +1,39 @@
 {{#
     @name Hero
-    @desc Editorial hero — clean, typography-led, with optional full-bleed image below. Simple and premium.
+    @desc Editorial hero with journey timeline and watercolor waypoint icons.
     @set page.page_builder.hero
 #}}
 
 <!-- /page_builder/_hero.antlers.html -->
-<section class="no-space-y">
+<section class="no-space-y relative">
     <div class="fluid-grid pt-32 pb-6 md:pt-40 md:pb-10 lg:pt-48 lg:pb-12">
-        <div class="span-content">
-            {{# Small label #}}
-            <p class="text-xs uppercase tracking-[0.2em] text-primary font-semibold mb-6 md:mb-8">Funchal & Madeira</p>
+        <div class="span-content relative">
+            {{# Timeline with waypoint illustrations #}}
+            <div class="hidden md:block absolute left-2 xl:left-[-3rem] top-0 bottom-[-6rem]" aria-hidden="true">
+                <div class="absolute top-[2px] w-[6px] h-[6px] rounded-full bg-primary/50 -translate-x-[2.5px]"></div>
+                <div class="absolute top-[4px] bottom-0 left-0 w-[1px] bg-primary/15"></div>
+                {{# Coffee #}}
+                <img src="/images/waypoints/coffee.png" alt="" class="absolute top-[25%] left-1/2 -translate-x-1/2 w-16 h-16 rounded-full object-cover shadow-md ring-2 ring-white" loading="lazy"/>
+                {{# Pastel de nata #}}
+                <img src="/images/waypoints/pastelnata.png" alt="" class="absolute top-[60%] left-1/2 -translate-x-1/2 w-16 h-16 rounded-full object-cover shadow-md ring-2 ring-white" loading="lazy"/>
+            </div>
 
-            {{# Typography-led heading — mixed weight for rhythm #}}
+            <p class="text-xs uppercase tracking-[0.2em] text-primary/60 font-semibold mb-6 md:mb-8">A day in Madeira</p>
+
             {{ if block:heading }}
                 <h1 class="max-w-3xl" style="text-wrap: balance;">
                     <span class="block text-4xl md:text-6xl lg:text-[5.2rem] leading-[1.0] tracking-[-0.035em] text-neutral-900">{{ block:heading }}</span>
                 </h1>
             {{ /if }}
 
-            {{# Thin accent line #}}
             <div class="w-12 h-[2px] bg-primary/30 mt-7 md:mt-9"></div>
 
             <div class="mt-7 md:mt-9 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
                 {{ if block:subheading }}
-                    <p class="text-base md:text-lg text-neutral/50 max-w-lg leading-relaxed">
-                        {{ block:subheading }}
-                    </p>
+                    <p class="text-base md:text-lg text-neutral/50 max-w-lg leading-relaxed">{{ block:subheading }}</p>
                 {{ /if }}
 
-                <button
-                    type="button"
-                    data-open-form-modal="booking"
-                    class="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all"
-                >
+                <button type="button" data-open-form-modal="booking" class="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all">
                     <span>Book a Tour</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </button>
@@ -40,17 +41,11 @@
         </div>
     </div>
 
-    {{# Full-bleed image — the visual anchor #}}
     {{ if block:background_image }}
         <div class="fluid-grid pb-4">
             <div class="span-content">
                 <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
-                    <img
-                        src="{{ glide:block:background_image width="1400" height="520" fit="crop" format="webp" quality="82" }}"
-                        alt="Funchal and Madeira"
-                        class="w-full h-auto aspect-[21/8] object-cover"
-                        fetchpriority="high"
-                    />
+                    <img src="{{ glide:block:background_image width="1400" height="520" fit="crop" format="webp" quality="82" }}" alt="Funchal and Madeira" class="w-full h-auto aspect-[21/8] object-cover" fetchpriority="high"/>
                 </div>
             </div>
         </div>
@@ -58,12 +53,7 @@
         <div class="fluid-grid pb-4">
             <div class="span-content">
                 <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
-                    <img
-                        src="/images/hero-split-funchal-peaks.png"
-                        alt="Funchal and Madeira"
-                        class="w-full h-auto aspect-[21/8] object-cover"
-                        fetchpriority="high"
-                    />
+                    <img src="/images/hero-split-funchal-peaks.png" alt="Funchal and Madeira" class="w-full h-auto aspect-[21/8] object-cover" fetchpriority="high"/>
                 </div>
             </div>
         </div>

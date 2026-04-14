@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'automatic' => env('STATAMIC_GIT_AUTOMATIC', true),
+    'automatic' => env('STATAMIC_GIT_AUTOMATIC', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,7 +58,7 @@ return [
     |
     */
 
-    'dispatch_delay' => env('STATAMIC_GIT_DISPATCH_DELAY', 0),
+    'dispatch_delay' => env('STATAMIC_GIT_DISPATCH_DELAY', 5),
 
     /*
     |--------------------------------------------------------------------------
@@ -74,8 +74,8 @@ return [
     'use_authenticated' => true,
 
     'user' => [
-        'name' => env('STATAMIC_GIT_USER_NAME', 'Spock'),
-        'email' => env('STATAMIC_GIT_USER_EMAIL', 'spock@example.com'),
+        'name' => env('STATAMIC_GIT_USER_NAME', 'hpaul'),
+        'email' => env('STATAMIC_GIT_USER_EMAIL', 'igomodo@gmail.com'),
     ],
 
     /*
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'paths' => [
+    'paths' => array_values(array_filter([
         base_path('content'),
         base_path('users'),
         resource_path('addons'),
@@ -106,7 +106,7 @@ return [
         public_path('files'),
         public_path('page_builder'),
         public_path('social_images'),
-    ],
+    ], 'file_exists')),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,13 +1,33 @@
 title: 'Experience Split'
 fields:
   -
+    handle: step
+    field:
+      type: text
+      display: Step
+      instructions: 'Journey step number, e.g. "01".'
+      width: 25
+  -
     handle: label
     field:
       type: text
       display: Label
-      instructions: 'Small uppercase label above the heading.'
+      instructions: 'Small label next to the step number.'
       default: 'Our Signature Tour'
       width: 50
+  -
+    handle: mood
+    field:
+      type: button_group
+      display: Mood
+      instructions: 'Color mood for this section of the journey.'
+      default: warm
+      options:
+        warm: 'Warm (city)'
+        neutral: 'Neutral (transition)'
+        cool: 'Cool (mountains)'
+        airy: 'Airy (sky)'
+      width: 25
   -
     handle: heading
     field:

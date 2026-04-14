@@ -64,4 +64,58 @@
     .prose-2xl {
         line-height: 1.5em;
     }
+
+    /* Tour story — editorial single-column with drop cap */
+    .tour-story {
+        text-align: justify;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+    }
+
+    .tour-story h2 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        letter-spacing: -0.01em;
+        color: var(--color-neutral-800);
+        margin-top: 2.25rem;
+        margin-bottom: 0.75rem;
+        text-align: left;
+    }
+
+    .tour-story h2:first-child {
+        margin-top: 0;
+    }
+
+    .tour-story p {
+        margin-bottom: 1.1rem;
+        text-indent: 0;
+    }
+
+    .tour-story p:first-of-type::first-letter {
+        font-family: var(--font-serif);
+        font-size: 3.2rem;
+        float: left;
+        line-height: 0.9;
+        padding: 0.25rem 0.6rem 0 0;
+        color: var(--color-primary);
+        font-weight: 400;
+    }
+
+    /* Story gallery — CSS masonry */
+    .story-gallery {
+        column-count: 2;
+        column-gap: 0.75rem;
+    }
+
+    .story-gallery img {
+        break-inside: avoid;
+        width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+        .story-gallery {
+            column-count: 2;
+            column-gap: 0.875rem;
+        }
+    }
 }

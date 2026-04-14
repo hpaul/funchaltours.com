@@ -1,0 +1,14 @@
+node_modules/
+vendor/
+public/build/
+public/hot
+bootstrap/cache/*.php
+.env
+.env.backup
+.phpunit.cache/
+storage/debugbar/
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+GEMINI_CONTEXT.md

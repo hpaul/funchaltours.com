@@ -1,0 +1,24 @@
+#!/bin/sh
+
+for host in $KAMAL_HOSTS; do
+  ssh "$host" "docker exec \$(docker ps -q --filter name=funchaltours-web) sh -lc '
+    php artisan view:clear &&
+    php artisan config:clear &&
+    php artisan route:clear &&
+    php artisan event:clear &&
+    php artisan clear-compiled &&
+    php artisan statamic:stache:refresh &&
+    php artisan statamic:glide:clear &&
+    php please static:clear &&
+    php please static:warm
+  '" || true
+
+  ssh "$host" "docker exec \$(docker ps -q --filter name=funchaltours-web) sh -lc '
+    php artisan assets:meta-missing
+  '" || true
+
+  ssh "$host" "curl -fsS -o /dev/null https://funchaltours.com" || true
+  ssh "$host" "docker image prune -af --filter 'until=24h'" || true
+done
+
+git checkout main >/dev/null 2>&1 || true

@@ -5,8 +5,15 @@
 #}}
 
 <!-- /page_builder/_features_grid.antlers.html -->
-<section class="fluid-grid py-16 md:py-24 lg:py-32">
-    <div class="span-content">
+<section class="relative no-space-y py-16 md:py-24 lg:py-32" style="background: linear-gradient(180deg, #ebe9f2 0%, #f0eef2 40%, #f7f2ee 100%);">
+    <div class="fluid-grid">
+    <div class="span-content relative">
+        {{# Timeline — final segment, fades out #}}
+        <div class="hidden md:block absolute left-2 xl:left-[-3rem] top-0 h-20" aria-hidden="true">
+            <div class="absolute top-0 h-full left-0 w-[1px] bg-gradient-to-b from-primary/15 to-transparent"></div>
+            <div class="absolute top-0 w-[7px] h-[7px] rounded-full bg-primary/40 -translate-x-[3px]"></div>
+        </div>
+
         <div class="max-w-3xl mx-auto" x-data="{
             openFeature: null,
             lastFeature: null,
@@ -94,6 +101,7 @@
                 </div>
             {{ /if }}
         </div>
+    </div>
     </div>
 </section>
 <!-- End: /page_builder/_features_grid.antlers.html -->

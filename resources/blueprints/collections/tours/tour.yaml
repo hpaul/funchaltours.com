@@ -33,6 +33,16 @@ tabs:
               max_files: 1
               container: images
               mode: list
+          -
+            handle: story_gallery
+            field:
+              type: assets
+              display: 'Story Gallery'
+              instructions: 'Images shown alongside the "How the day unfolds" story section. Uploaded in order, displayed as a masonry gallery.'
+              container: images
+              mode: grid
+              folder: tour-stories
+              create_folder: true
       -
         display: 'Tour Details'
         fields:

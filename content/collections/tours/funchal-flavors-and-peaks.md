@@ -3,8 +3,15 @@ id: 948d0713-0b59-4989-b48b-f9af63fa834d
 title: 'Funchal Flavors & Peaks'
 excerpt: 'A full-day journey from the cobblestone streets and flavors of Old Funchal to the summit trail between Pico do Arieiro and Pico Ruivo — Madeira''s most spectacular hike.'
 duration: 'Full day (~8–10 hours)'
-group_size: 'Up to 5 people'
+group_size: 'Private or up to 3 people'
 meeting_point: 'Hotel pickup included'
+story_gallery:
+  - tour-stories/funchal-painted-doors.png
+  - tour-stories/mercado-fruit.png
+  - tour-stories/bolo-do-caco.png
+  - tour-stories/pr1-ridge.png
+  - tour-stories/poncha-glasses.png
+  - tour-stories/above-clouds.png
 highlights:
   -
     text: 'Guided food tasting through Funchal''s historic market and Old Town'

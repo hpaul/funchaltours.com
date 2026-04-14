@@ -1,0 +1,129 @@
+# Name of your application. Used to uniquely configure containers.
+service: funchaltours
+
+# Name of the container image.
+image: funchaltours/website
+
+# Deploy to these servers.
+servers:
+  web:
+    hosts:
+      - funchaltours
+    options:
+      publish:
+        - "80:8080"
+        - "443:8443"
+        - "443:8443/udp"
+
+    proxy: false
+
+# Credentials for your image host.
+registry:
+  server: localhost:5555
+
+# Configure builder setup.
+builder:
+  arch: amd64
+  context: .
+  dockerfile: Dockerfile
+
+env:
+  clear:
+    # Statamic related
+    APP_NAME: "Funchal Tours"
+    APP_ENV: production
+    APP_DEBUG: false
+    DEBUGBAR_ENABLED: false
+    APP_URL: "https://funchaltours.com"
+    APP_LOCALE: en
+
+    APP_MAINTENANCE_DRIVER: file
+    APP_MAINTENANCE_STORE: file
+
+    LOG_CHANNEL: stack
+    LOG_STACK: single
+    LOG_LEVEL: debug
+
+    DB_CONNECTION: sqlite
+    SESSION_DRIVER: redis
+    SESSION_LIFETIME: 120
+    SESSION_ENCRYPT: false
+    SESSION_PATH: /
+
+    BROADCAST_CONNECTION: log
+    FILESYSTEM_DISK: local
+    QUEUE_CONNECTION: redis
+
+    CACHE_STORE: redis
+
+    REDIS_CLIENT: phpredis
+    REDIS_HOST: funchaltours-redis
+    REDIS_PORT: 6379
+
+    MAIL_MAILER: smtp
+    MAIL_HOST: smtp-relay.brevo.com
+    MAIL_SECURE: false
+    MAIL_PORT: 587
+    MAIL_FROM_ADDRESS: "hello@funchaltours.com"
+    MAIL_FROM_NAME: "${APP_NAME}"
+
+    AWS_DEFAULT_REGION: auto
+    AWS_BUCKET: "funchaltours"
+    AWS_ENDPOINT: "https://fly.storage.tigris.dev"
+    AWS_URL: "https://funchaltours.fly.storage.tigris.dev"
+    AWS_USE_PATH_STYLE_ENDPOINT: false
+
+    VITE_APP_NAME: "${APP_NAME}"
+
+    STATAMIC_LICENSE_KEY: ""
+    STATAMIC_PRO_ENABLED: false
+    STATAMIC_STACHE_WATCHER: auto
+    STATAMIC_STATIC_CACHING_STRATEGY: half
+    STATAMIC_CACHE_TAGS_ENABLED: false
+    STATAMIC_REVISIONS_ENABLED: false
+    STATAMIC_GRAPHQL_ENABLED: false
+    STATAMIC_API_ENABLED: false
+    STATAMIC_GIT_ENABLED: true
+    STATAMIC_GIT_PUSH: true
+    STATAMIC_GIT_AUTOMATIC: true
+    STATAMIC_GIT_DISPATCH_DELAY: 0
+    STATAMIC_GIT_QUEUE_CONNECTION: sync
+    CONTENT_SYNC_ENABLED: "true"
+    CONTENT_SYNC_INTERVAL: "90"
+    CONTENT_SYNC_BRANCH: "site-live"
+
+    IMAGE_MANIPULATION_DRIVER: imagick
+
+    # Frankenphp related
+    SERVER_NAME: "funchaltours.com"
+    CADDY_AUTO_HTTPS: "on"
+    CADDY_HTTP_SERVER_ADDRESS: "http://funchaltours.com"
+    CADDY_HTTPS_SERVER_ADDRESS: "funchaltours.com, www.funchaltours.com"
+    SSL_MODE: "full"
+    PHP_MEMORY_LIMIT: "512M"
+    PHP_UPLOAD_MAX_FILE_SIZE: "500M"
+    PHP_OPCACHE_ENABLE: "1"
+    AUTORUN_ENABLED: "true"
+    AUTORUN_LARAVEL_QUEUE_WORK: "true"
+    AUTORUN_LARAVEL_SCHEDULER: "true"
+  secret:
+    - APP_KEY
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - SSH_DEPLOY_KEY
+    - MAIL_USERNAME
+    - MAIL_PASSWORD
+
+# Use accessory services (secrets come from .kamal/secrets).
+accessories:
+  redis:
+    image: valkey/valkey:8
+    host: funchaltours
+    port: 6379
+    directories:
+      - data:/data
+
+volumes:
+  - funchaltours-storage:/var/www/html/storage
+  - funchaltours-caddy-data:/data/caddy
+  - funchaltours-caddy-config:/config/caddy

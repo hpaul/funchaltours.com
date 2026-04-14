@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# A sample pre-build hook
+#
+# Checks:
+# 1. We have a clean checkout
+# 2. The `site-live` branch has been rebased with `main`
+#
+# These environment variables are available:
+# KAMAL_RECORDED_AT
+# KAMAL_PERFORMER
+# KAMAL_VERSION
+# KAMAL_HOSTS
+# KAMAL_ROLES (if set)
+# KAMAL_DESTINATION (if set)
+
+git diff --quiet && git diff --cached --quiet || {
+  git checkout main
+  echo "Pre-deploy aborted: local git working tree is not clean. Commit or stash your changes first."
+  exit 1
+}
+
+git checkout main
+git pull origin main
+
+git fetch origin site-live || true
+
+if git show-ref --verify --quiet refs/remotes/origin/site-live; then
+  git checkout -B site-live origin/site-live
+else
+  git checkout -B site-live origin/main
+fi
+
+git rebase main
+git push -u --force origin site-live

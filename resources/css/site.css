@@ -27,13 +27,18 @@
 }
 
 @theme {
-    /* Warm violet — matching Rides on Clouds palette */
-    --color-primary: oklch(0.69 0.17 313);
-    --color-primary-light: oklch(0.95 0.03 313);
-    --color-accent: oklch(0.78 0.09 25);
-    --color-accent-light: oklch(0.95 0.03 25);
-    --color-surface: oklch(0.975 0.008 85);
-    --color-surface-warm: oklch(0.97 0.012 65);
+    /* Jacaranda blossom — blue-shifted violet like the tree canopies */
+    --color-primary: oklch(0.58 0.16 285);
+    --color-primary-light: oklch(0.93 0.04 285);
+    --color-primary-deep: oklch(0.30 0.14 280);
+
+    /* Honey — golden light through the canopy, used as warm counterpoint */
+    --color-accent: oklch(0.82 0.11 85);
+    --color-accent-light: oklch(0.95 0.04 85);
+
+    /* Surface — cool lavender-tinted white (morning light through blossoms) */
+    --color-surface: oklch(0.975 0.006 290);
+    --color-surface-warm: oklch(0.96 0.012 290);
 
     --color-neutral: var(--color-slate-800);
     --color-neutral-50: var(--color-slate-50);

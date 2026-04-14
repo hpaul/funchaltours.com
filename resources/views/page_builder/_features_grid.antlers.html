@@ -5,7 +5,7 @@
 #}}
 
 <!-- /page_builder/_features_grid.antlers.html -->
-<section class="relative no-space-y py-16 md:py-24 lg:py-32" style="background: linear-gradient(180deg, #ebe9f2 0%, #f0eef2 40%, #f7f2ee 100%);">
+<section class="relative no-space-y py-16 md:py-24 lg:py-32" style="background: linear-gradient(180deg, #ddd4ed 0%, #e8e2f5 40%, #f7f5fa 100%);">
     <div class="fluid-grid">
     <div class="span-content relative">
         {{# Timeline — final segment, fades out #}}
@@ -51,7 +51,7 @@
                         {{ block:items }}
                             <button
                                 @click="toggleFeature({{ index }}, $event)"
-                                :class="openFeature === {{ index }} ? 'bg-[#7b4591] text-white shadow-md' : 'bg-neutral/5 text-neutral/70 hover:bg-neutral/10 hover:text-neutral'"
+                                :class="openFeature === {{ index }} ? 'bg-[#6d5ab9] text-white shadow-md' : 'bg-neutral/5 text-neutral/70 hover:bg-neutral/10 hover:text-neutral'"
                                 class="relative px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 flex items-center gap-2"
                             >
                                 <svg class="w-3.5 h-3.5 transition-transform duration-200" :class="openFeature === {{ index }} ? 'rotate-45' : ''" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/></svg>
@@ -72,10 +72,10 @@
                         x-transition:leave="transition ease-in duration-150"
                         x-transition:leave-start="opacity-100 scale-100"
                         x-transition:leave-end="opacity-0 scale-95"
-                        class="absolute z-50 rounded-2xl border border-[#7b4591]/10 bg-white/95 backdrop-blur-xl overflow-hidden flex flex-col shadow-[0_4px_16px_rgba(0,0,0,0.08),0_12px_40px_rgba(0,0,0,0.06)]"
+                        class="absolute z-50 rounded-2xl border border-[#6d5ab9]/10 bg-white/95 backdrop-blur-xl overflow-hidden flex flex-col shadow-[0_4px_16px_rgba(0,0,0,0.08),0_12px_40px_rgba(0,0,0,0.06)]"
                     >
                         {{# Decorative accent #}}
-                        <div class="absolute top-4 right-14 text-[#7b4591]/[0.06] pointer-events-none">
+                        <div class="absolute top-4 right-14 text-[#6d5ab9]/[0.06] pointer-events-none">
                             <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                         </div>
 
@@ -83,7 +83,7 @@
                             {{ block:items }}
                                 <h4 x-show="lastFeature === {{ index }}" class="font-serif text-2xl text-neutral">{{ heading }}</h4>
                             {{ /block:items }}
-                            <button @click="openFeature = null" class="shrink-0 p-2 rounded-full text-neutral/30 hover:text-[#7b4591] hover:bg-[#7b4591]/5 transition-all" aria-label="Close">
+                            <button @click="openFeature = null" class="shrink-0 p-2 rounded-full text-neutral/30 hover:text-[#6d5ab9] hover:bg-[#6d5ab9]/5 transition-all" aria-label="Close">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
                             </button>
                         </div>

@@ -14,7 +14,7 @@
 >
     <button
         @click.prevent.stop="mobileNavOpen = !mobileNavOpen"
-        class="fixed bottom-0 right-0 z-30 flex items-center justify-center w-14 h-14 mr-6 mb-6 text-xs font-bold text-white mb-safe rounded-full bg-[#7b4591] shadow-lg shadow-[#7b4591]/25"
+        class="fixed bottom-0 right-0 z-30 flex items-center justify-center w-14 h-14 mr-6 mb-6 text-xs font-bold text-white mb-safe rounded-full bg-[#6d5ab9] shadow-lg shadow-[#6d5ab9]/25"
         :aria-label="mobileNavOpen ? '{{ trans:strings.nav_close }}' : '{{ trans:strings.nav_open }}'"
         :aria-expanded="mobileNavOpen"
         x-text="mobileNavOpen ? '{{ trans:strings.close }}' : '{{ trans:strings.menu }}'"

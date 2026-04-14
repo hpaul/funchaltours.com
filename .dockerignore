@@ -1,5 +1,6 @@
 node_modules/
 vendor/
+public/_build/
 public/build/
 public/hot
 bootstrap/cache/*.php

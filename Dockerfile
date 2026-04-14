@@ -42,7 +42,7 @@ COPY --chown=www-data:www-data . /var/www/html
 COPY --chown=www-data:www-data --from=composer-build /app/vendor /var/www/html/vendor
 
 # Copy built frontend assets from node stage
-COPY --chown=www-data:www-data --from=node-build /app/public/build /var/www/html/public/build
+COPY --chown=www-data:www-data --from=node-build /app/public/_build /var/www/html/public/_build
 
 ENV HOME=/var/www
 

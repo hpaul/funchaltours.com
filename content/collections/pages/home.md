@@ -27,7 +27,7 @@ page_builder:
     mood: warm
     heading: 'The Flavors of Funchal'
     text: 'Start your day wandering the cobblestone streets of the Old Town and the legendary Mercado dos Lavradores. Taste poncha, bolo do caco, passion fruit, and espetada — the flavors that define Madeira. Your guide weaves in five centuries of history along the way.'
-    image_url: '/images/food-madeira-spread.png'
+    image_url: '/images/food-madeira-spread.webp'
     features:
       -
         icon: clock
@@ -52,7 +52,7 @@ page_builder:
     mood: cool
     heading: 'The PR1 Summit Trail'
     text: 'After a scenic transfer through the mountains, arrive at Pico do Arieiro at 1,818m. Walk the legendary PR1 trail along knife-edge ridges and through tunnels carved into basalt, connecting Madeira''s third-highest peak to its highest — Pico Ruivo at 1,862m. On clear days, the Atlantic stretches endlessly below.'
-    image_url: '/images/pr1-trail-peaks.png'
+    image_url: '/images/pr1-trail-peaks.webp'
     features:
       -
         icon: clock
@@ -102,7 +102,7 @@ page_builder:
     enabled: true
     heading: 'Want to discover more of Madeira?'
     text: 'The Flavors & Peaks tour is our signature day. But this island has a lot more to offer — and we can design a private experience around anything that catches your eye. Multi-day itineraries, levada walks, wine trails, sunrise chasing. Tell us what sounds good and we''ll build it.'
-    background_image_url: '/images/discover-madeira-mood.png'
+    background_image_url: '/images/discover-madeira-mood.webp'
     ideas:
       -
         title: 'Levada Walks'

@@ -9,9 +9,7 @@
     <div class="absolute inset-0 bg-[#15112a]"></div>
     {{ if block:background_image_url }}
         <img
-            src="{{ glide src="{block:background_image_url}" width='1400' fit='crop_focal' format='webp' quality='65' }}"
-            srcset="{{ glide src='{block:background_image_url}' width='800' fit='crop_focal' format='webp' quality='60' }} 800w, {{ glide src='{block:background_image_url}' width='1400' fit='crop_focal' format='webp' quality='65' }} 1400w, {{ glide src='{block:background_image_url}' width='2000' fit='crop_focal' format='webp' quality='68' }} 2000w"
-            sizes="100vw"
+            src="{{ block:background_image_url }}"
             alt=""
             class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-luminosity"
             loading="lazy"

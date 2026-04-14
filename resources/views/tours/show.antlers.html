@@ -121,9 +121,7 @@
                         <div class="story-gallery">
                             {{ story_gallery }}
                                 <img
-                                    src="{{ glide src="{url}" width='600' format='webp' quality='78' }}"
-                                    srcset="{{ glide src='{url}' width='400' format='webp' quality='75' }} 400w, {{ glide src='{url}' width='600' format='webp' quality='78' }} 600w, {{ glide src='{url}' width='900' format='webp' quality='80' }} 900w"
-                                    sizes="(max-width: 1024px) 50vw, 25vw"
+                                    src="{{ url }}"
                                     alt="{{ alt ?? basename }}"
                                     class="block w-full rounded-xl mb-3 shadow-sm"
                                     loading="lazy"

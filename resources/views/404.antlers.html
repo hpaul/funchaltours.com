@@ -1,0 +1,76 @@
+{{#
+    @name 404 Page
+    @desc Custom 404 with editorial feel and tour links.
+#}}
+
+<!-- /404.antlers.html -->
+<main id="content" class="relative">
+    {{# Soft jacaranda gradient backdrop — subtle like the rest of the site #}}
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, #f7f5fa 0%, #ebe7f5 60%, #f7f5fa 100%);"></div>
+
+    <section class="relative fluid-grid pt-36 pb-16 md:pt-44 md:pb-24">
+        <div class="span-content">
+            {{# Oversized 404 — decorative, low-contrast serif #}}
+            <p class="font-serif text-[8rem] md:text-[12rem] lg:text-[14rem] leading-none tracking-[-0.04em] text-primary/15 mb-4 select-none">404</p>
+
+            <p class="text-xs uppercase tracking-[0.2em] text-primary/60 font-semibold mb-4">Lost in the clouds</p>
+
+            <h1 class="max-w-3xl text-4xl md:text-5xl lg:text-6xl leading-[1.02] tracking-[-0.03em] text-neutral-900" style="text-wrap: balance;">
+                This page took a wrong turn somewhere between Funchal and the peaks.
+            </h1>
+
+            <p class="mt-6 md:mt-8 text-base md:text-lg text-neutral/55 max-w-xl leading-relaxed">
+                Not to worry — the island is full of better places to be. Here's where you can go next.
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+                <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white font-semibold text-sm shadow-md shadow-primary/15 hover:brightness-110 transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                    <span>Back home</span>
+                </a>
+                <button type="button" data-open-form-modal="booking" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-neutral-800 font-semibold text-sm border border-neutral/15 hover:bg-neutral/5 transition-all">
+                    <span>Send us a message</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    {{# Tour cards — same style as homepage but with a different header #}}
+    <section class="relative fluid-grid no-space-y py-12 md:py-16 border-t border-primary/8">
+        <div class="span-content">
+            <div class="max-w-2xl mb-10">
+                <p class="text-xs uppercase tracking-[0.2em] text-primary/60 font-semibold mb-3">Our tours</p>
+                <h2 class="text-2xl md:text-3xl tracking-[-0.02em] leading-[1.1]">Maybe one of these is what you were looking for</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+                {{ collection:tours sort="order" }}
+                    <a href="{{ url }}" class="group relative flex flex-col overflow-hidden rounded-2xl border border-neutral/5 bg-white shadow-sm hover:shadow-xl hover:border-primary/15 transition-all duration-300">
+                        {{ if feature_image }}
+                            <div class="relative overflow-hidden aspect-[16/10]">
+                                <img
+                                    src="{{ glide:feature_image width="900" height="560" fit="crop" format="webp" quality="80" }}"
+                                    alt="{{ title }}"
+                                    class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                                    loading="lazy"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent"></div>
+                            </div>
+                        {{ /if }}
+                        <div class="flex flex-col flex-1 p-6 lg:p-7">
+                            <h3 class="text-xl tracking-[-0.01em] group-hover:text-primary transition-colors">{{ title }}</h3>
+                            {{ if excerpt }}
+                                <p class="mt-2 text-neutral/55 text-sm leading-relaxed flex-1">{{ excerpt | truncate:140 }}</p>
+                            {{ /if }}
+                            <div class="mt-4 flex items-center gap-2 text-primary font-semibold text-sm">
+                                <span>Learn more</span>
+                                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                            </div>
+                        </div>
+                    </a>
+                {{ /collection:tours }}
+            </div>
+        </div>
+    </section>
+</main>
+<!-- End: /404.antlers.html -->

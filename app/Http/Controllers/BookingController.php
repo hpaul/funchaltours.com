@@ -51,7 +51,7 @@ class BookingController extends Controller
         Stripe::setApiKey(config('services.stripe.secret'));
 
         $session = CheckoutSession::create([
-            'ui_mode' => 'embedded',
+            'ui_mode' => 'embedded_page',
             'mode' => 'payment',
             'redirect_on_completion' => 'never', // onComplete JS callback handles UI; webhook is authoritative
             'customer_email' => $data['email'],

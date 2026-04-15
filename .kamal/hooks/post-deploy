@@ -14,7 +14,7 @@ for host in $KAMAL_HOSTS; do
   '" || true
 
   ssh "$host" "docker exec \$(docker ps -q --filter name=funchaltours-web) sh -lc '
-    php artisan assets:meta-missing
+    php artisan statamic:assets:meta
   '" || true
 
   ssh "$host" "curl -fsS -o /dev/null https://funchaltours.com" || true

@@ -44,6 +44,13 @@ fields:
               fields:
                 -
                   import: features_grid
+            meet_guide:
+              display: 'Meet the Guide'
+              instructions: 'Intimate "meet the guide" section with portrait image and intro text.'
+              icon: user
+              fields:
+                -
+                  import: meet_guide
             discover_more:
               display: 'Discover More'
               instructions: 'Editorial section promoting custom/private tours with experience ideas.'

@@ -30,10 +30,12 @@
 
             <div class="mt-7 md:mt-9 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
                 {{ if block:subheading }}
-                    <p class="text-base md:text-lg text-neutral/50 max-w-lg leading-relaxed">{{ block:subheading }}</p>
+                    <div class="max-w-lg">
+                        <p class="text-base md:text-lg text-neutral/50 leading-relaxed [&_a]:text-primary [&_a]:font-medium [&_a]:underline [&_a]:decoration-primary/30 [&_a]:underline-offset-2 hover:[&_a]:decoration-primary">{{ block:subheading | raw }}</p>
+                    </div>
                 {{ /if }}
 
-                <button type="button" data-open-booking-modal="funchal-flavors-and-peaks" class="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all">
+                <button type="button" data-open-booking-modal="funchal-flavors-and-peaks" class="self-start shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all">
                     <span>Book a Tour</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                 </button>
@@ -43,29 +45,33 @@
 
     <div class="fluid-grid pb-4">
         <div class="span-content">
-            <div class="rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8">
+            <a href="/tours/funchal-flavors-and-peaks" class="relative block rounded-2xl overflow-hidden shadow-2xl shadow-neutral/8 group" aria-label="Discover the Funchal Flavors & Peaks private tour">
                 {{ if block:background_image }}
                     <img
                         src="{{ glide:block:background_image width="1200" fit="crop_focal" format="webp" quality="78" }}"
                         srcset="{{ glide:block:background_image width='640' fit='crop_focal' format='webp' quality='75' }} 640w, {{ glide:block:background_image width='960' fit='crop_focal' format='webp' quality='76' }} 960w, {{ glide:block:background_image width='1400' fit='crop_focal' format='webp' quality='78' }} 1400w, {{ glide:block:background_image width='2000' fit='crop_focal' format='webp' quality='78' }} 2000w"
                         sizes="(max-width: 1280px) 100vw, 1280px"
-                        alt="Funchal and Madeira"
-                        class="w-full h-auto aspect-[21/8] object-cover"
+                        alt="Funchal and Madeira private tour — Old Town flavours and Pico Ruivo peaks"
+                        class="w-full h-auto aspect-[21/8] object-cover transition-transform duration-500 group-hover:scale-[1.015]"
                         fetchpriority="high"
                         width="1400"
                         height="534"
                     />
                 {{ else }}
                     <img
-                        src="/images/hero-split-funchal-peaks.webp"
-                        alt="Funchal and Madeira"
-                        class="w-full h-auto aspect-[21/8] object-cover"
+                        src="/images/hero-funchal.webp"
+                        alt="Funchal, Madeira — overlooking the bay and the Old Town"
+                        class="w-full h-auto aspect-[21/8] object-cover transition-transform duration-500 group-hover:scale-[1.015]"
                         fetchpriority="high"
                         width="1400"
                         height="534"
                     />
                 {{ /if }}
-            </div>
+                <span class="absolute bottom-4 right-4 md:bottom-6 md:right-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm text-neutral-800 text-xs font-semibold shadow-md shadow-black/10 transition-all duration-300 group-hover:bg-white group-hover:gap-3">
+                    <span>Read more</span>
+                    <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </span>
+            </a>
         </div>
     </div>
 </section>

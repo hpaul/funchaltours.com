@@ -1,0 +1,69 @@
+{{#
+    @name Meet the Guide
+    @desc An intimate "meet your guide" section with a portrait image, personal intro, and link to the guide's full story.
+    @set page.page_builder.meet_guide
+#}}
+
+<!-- /page_builder/_meet_guide.antlers.html -->
+<section class="fluid-grid py-16 md:py-24">
+    <div class="span-content">
+        <div class="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-16 items-center {{ block:reverse ?= 'lg:[&>*:first-child]:order-2' }}">
+            {{# Image side — 4:3 portrait #}}
+            <div>
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-neutral/8 max-w-md {{ block:reverse ?= 'lg:ml-auto' }}">
+                    {{ if block:image }}
+                        <img
+                            src="{{ glide:block:image width='800' height='600' fit='crop_focal' format='webp' quality='82' }}"
+                            alt="{{ block:heading }}"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        />
+                    {{ elseif block:image_url }}
+                        <img
+                            src="{{ block:image_url }}"
+                            alt="{{ block:heading }}"
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                            width="800"
+                            height="600"
+                        />
+                    {{ /if }}
+                </div>
+            </div>
+
+            {{# Text side #}}
+            <div>
+                {{ if block:label }}
+                    <p class="text-xs uppercase tracking-[0.2em] text-primary/60 font-semibold mb-4">{{ block:label }}</p>
+                {{ /if }}
+
+                {{ if block:heading }}
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl tracking-[-0.02em] leading-[1.05] text-neutral-900 italic">{{ block:heading }}</h2>
+                {{ /if }}
+
+                {{# Thin accent line #}}
+                <div class="w-10 h-[2px] bg-primary/30 mt-6 md:mt-8"></div>
+
+                {{ if block:text }}
+                    <p class="mt-6 md:mt-8 text-base md:text-lg text-neutral/60 leading-relaxed max-w-xl">{{ block:text }}</p>
+                {{ /if }}
+
+                {{ if block:cta_label && block:cta_url }}
+                    <div class="mt-8">
+                        <a
+                            href="{{ block:cta_url }}"
+                            {{ if block:cta_url | starts_with:'http' }}target="_blank" rel="noopener"{{ /if }}
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-neutral-900 text-white font-semibold text-sm shadow-md shadow-neutral/15 hover:brightness-110 transition-all"
+                        >
+                            <span>{{ block:cta_label }}</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                    </div>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End: /page_builder/_meet_guide.antlers.html -->

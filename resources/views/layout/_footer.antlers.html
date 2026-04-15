@@ -11,20 +11,18 @@
                 <div class="flex flex-col gap-3">
                     {{ partial:components/logo width="120" }}
                     <p class="text-sm text-neutral/60 max-w-xs">
-                        Discover the best of Funchal and Madeira with curated tours crafted by local experts.
+                        Private, tailor-made tours of Funchal &amp; Madeira — crafted by a local who lives here.
                     </p>
                 </div>
 
-                <div class="flex flex-col gap-4 items-start md:items-end">
-                    {{ if social_media:social_media }}
-                        <div class="flex gap-1">
-                            {{ social_media:social_media }}
-                                <a class="p-2 text-neutral/50 hover:text-primary transition-colors" href="{{ prefix }}{{ handle }}" rel="noopener{{ type == 'mastodon' ?= ' me' }}" aria-label="{{ config:app:name }} {{ trans:strings.on }} {{ type | title }}" target="_blank">
-                                    {{ svg :src="type" attr:class="w-5 h-5 overflow-visible fill-current" attr:alt="" attr:aria-hidden="true" }}
-                                </a>
-                            {{ /social_media:social_media }}
-                        </div>
-                    {{ /if }}
+                <div class="flex flex-col gap-4 items-start md:items-end text-sm">
+                    <nav class="flex flex-wrap gap-x-5 gap-y-2 text-neutral/55" aria-label="Footer">
+                        <a href="/tours/funchal-flavors-and-peaks" class="hover:text-primary transition-colors">Flavors &amp; Peaks</a>
+                        <a href="/tours/design-your-tour" class="hover:text-primary transition-colors">Bespoke Tour</a>
+                        <a href="https://ridesonclouds.com/why-me" target="_blank" rel="noopener" class="hover:text-primary transition-colors">Who is your guide?</a>
+                        <a href="/terms-and-conditions" class="hover:text-primary transition-colors">Terms &amp; Conditions</a>
+                        <a href="/privacy-policy" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    </nav>
 
                     <button
                         type="button"

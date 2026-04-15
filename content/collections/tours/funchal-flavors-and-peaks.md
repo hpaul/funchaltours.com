@@ -1,7 +1,9 @@
 ---
 id: 948d0713-0b59-4989-b48b-f9af63fa834d
 title: 'Funchal Flavors & Peaks'
-excerpt: 'A full-day journey from the cobblestone streets and flavors of Old Funchal to the summit trail between Pico do Arieiro and Pico Ruivo — Madeira''s most spectacular hike.'
+excerpt: 'A private full-day Madeira tour that pairs the flavours of Funchal''s Old Town with the PR1 summit trail between Pico do Arieiro and Pico Ruivo — the island''s most iconic walk, above the clouds.'
+seo_title: 'Funchal Flavors & Peaks — Private Full-Day Madeira Tour | Funchal Tours'
+seo_description: 'A private tailor-made Madeira tour for up to 3 guests. Morning tasting in Funchal''s Old Town, afternoon hike on the PR1 trail between Pico do Arieiro and Pico Ruivo. Hotel pickup included. From €150 per person.'
 duration: 'Full day (~8–10 hours)'
 group_size: 'Private, up to 3 people'
 bookable: true
@@ -17,28 +19,30 @@ story_gallery:
   - tour-stories/above-clouds.png
 highlights:
   -
-    text: 'Guided food tasting through Funchal''s historic market and Old Town'
+    text: 'Guided tasting through the Mercado dos Lavradores and Funchal''s Old Town'
   -
-    text: 'Walk through centuries of history in Funchal''s cobblestone quarter'
+    text: 'Poncha, bolo do caco, Madeira wine, and tropical fruits tasted the local way'
   -
-    text: 'PR1 trail — the iconic Pico do Arieiro to Pico Ruivo summit hike'
+    text: 'The legendary PR1 trail — Pico do Arieiro to Pico Ruivo, above the clouds'
   -
-    text: 'Breathtaking views above the clouds at 1,862m altitude'
+    text: 'Sweeping Atlantic views from Madeira''s highest peak (1,862 m)'
   -
-    text: 'Comfortable hotel pickup and drop-off included'
+    text: 'Hotel pickup and drop-off in a comfortable private vehicle'
   -
-    text: 'Small group for a personal, unhurried experience'
+    text: 'Private or small group of three — unhurried, flexible, truly yours'
 includes:
   -
-    text: 'Hotel pickup and drop-off (Funchal, Caniço, Câmara de Lobos)'
+    text: 'Hotel pickup and drop-off (Funchal, Caniço, Câmara de Lobos and around)'
   -
-    text: 'Local food tastings in Funchal'
+    text: 'Local tastings in the Old Town — poncha, bolo do caco, fruits and more'
   -
-    text: 'Experienced local guide'
+    text: 'Ana-Maria throughout the day — a local who actually lives on the island'
   -
-    text: 'Transport to Pico do Arieiro trailhead'
+    text: 'Private transport between Funchal and the Pico do Arieiro trailhead'
   -
-    text: 'Light snacks and water for the hike'
+    text: 'Light snacks and water for the PR1 hike'
+  -
+    text: 'Weather monitoring and on-the-fly plan adjustments for the best possible day'
 page_builder:
   -
     id: pb-flavors-article
@@ -51,19 +55,19 @@ page_builder:
         content:
           -
             type: text
-            text: 'Morning: The Flavors of Funchal'
+            text: 'Morning — the flavours of Funchal'
       -
         type: paragraph
         content:
           -
             type: text
-            text: "We begin in the heart of Funchal, where the narrow streets of the Old Town open up to the legendary Mercado dos Lavradores \u2014 a cathedral of tropical fruit, fresh fish, and local flowers. Your guide will introduce you to the tastes that define Madeiran cuisine: poncha, bolo do caco, passion fruit, and espetada."
+            text: "We begin in the heart of Funchal, where the narrow streets of the Old Town open up to the legendary Mercado dos Lavradores — a cathedral of tropical fruit, fresh fish, and fragrant flowers. I'll introduce you to the tastes that define Madeiran cuisine: poncha mixed the traditional way, warm bolo do caco with garlic butter, Madeira wine, and the passion fruit, anonas, and pitangas that never travel far from the island."
       -
         type: paragraph
         content:
           -
             type: text
-            text: 'From the market, we stroll through the historic quarter, past the painted doors of Rua de Santa Maria and the 15th-century cathedral, uncovering layers of history stretching back to the Age of Discovery.'
+            text: 'From the market we wander the historic quarter, past the painted doors of Rua de Santa Maria and the 15th-century cathedral, uncovering layers of history that stretch back to the Age of Discovery. This is a tasting walk done at the island''s pace — unhurried, personal, and far from any tour bus.'
       -
         type: heading
         attrs:
@@ -71,23 +75,37 @@ page_builder:
         content:
           -
             type: text
-            text: 'Afternoon: Above the Clouds'
+            text: 'Afternoon — above the clouds, on the PR1 trail'
       -
         type: paragraph
         content:
           -
             type: text
-            text: "After a leisurely transfer through Madeira\u2019s dramatic mountain interior, we arrive at Pico do Arieiro (1,818m) \u2014 the starting point of the PR1, Portugal\u2019s most celebrated mountain trail."
+            text: "After a scenic drive through Madeira's dramatic mountain interior, we arrive at Pico do Arieiro (1,818 m) — the starting point of the PR1, Portugal's most celebrated mountain trail and one of the finest day hikes in Europe."
       -
         type: paragraph
         content:
           -
             type: text
-            text: "The path winds along knife-edge ridges and through ancient tunnels carved into the basalt, connecting Madeira\u2019s third-highest peak to its highest: Pico Ruivo (1,862m). On clear days, the views stretch endlessly \u2014 the island falling away to the Atlantic on every side, with clouds drifting below your feet."
+            text: 'The path winds along knife-edge ridges and through ancient tunnels carved into the basalt, connecting Madeira''s third-highest peak to its very highest: Pico Ruivo (1,862 m). On a clear day, the views stretch endlessly — the island falling away to the Atlantic in every direction, with the clouds drifting below your feet.'
       -
         type: paragraph
         content:
           -
             type: text
-            text: 'This is a moderately challenging hike of approximately 7km one-way. We arrange the logistics so you can focus entirely on the experience.'
+            text: 'This is a moderately challenging walk of roughly 7 km one-way. I handle the logistics — timing, transport, weather — so you can focus entirely on the experience.'
+      -
+        type: heading
+        attrs:
+          level: 2
+        content:
+          -
+            type: text
+            text: 'Why book a private Madeira tour'
+      -
+        type: paragraph
+        content:
+          -
+            type: text
+            text: 'Because this day was never meant to be done by the clock of a tour bus. Your group is up to three people — no strangers, no waiting, no rushing. The pace adapts to you. If the morning runs long because you loved the market, the afternoon bends to match. If the weather turns, I have a plan. That''s the difference between a tailor-made Madeira tour and the standard one.'
 ---

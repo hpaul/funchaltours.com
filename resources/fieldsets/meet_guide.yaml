@@ -1,0 +1,58 @@
+title: 'Meet the Guide'
+fields:
+  -
+    handle: label
+    field:
+      type: text
+      display: Label
+      instructions: 'Small uppercase label above the heading.'
+      default: 'Your guide'
+      width: 50
+  -
+    handle: heading
+    field:
+      type: text
+      display: Heading
+      default: 'Meet Ana-Maria'
+      width: 50
+  -
+    handle: text
+    field:
+      type: textarea
+      display: Text
+      instructions: 'Short personal introduction. Plain text, one or two paragraphs.'
+  -
+    handle: image
+    field:
+      type: assets
+      display: Image
+      max_files: 1
+      container: images
+      mode: list
+  -
+    handle: image_url
+    field:
+      type: text
+      display: 'Image URL (fallback)'
+      instructions: 'Direct path to image in public/ if not using asset container.'
+  -
+    handle: cta_label
+    field:
+      type: text
+      display: 'CTA Label'
+      default: 'Read my story'
+      width: 50
+  -
+    handle: cta_url
+    field:
+      type: text
+      display: 'CTA URL'
+      instructions: 'External link (e.g. https://ridesonclouds.com/why-me) or internal path.'
+      width: 50
+  -
+    handle: reverse
+    field:
+      type: toggle
+      display: 'Reverse Layout'
+      instructions: 'Place image on the right, text on the left.'
+      default: false

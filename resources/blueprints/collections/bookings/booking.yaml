@@ -1,0 +1,115 @@
+title: Booking
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Reservation
+        fields:
+          -
+            handle: tour
+            field:
+              type: entries
+              collections:
+                - tours
+              display: Tour
+              max_items: 1
+              mode: select
+              width: 50
+          -
+            handle: booking_date
+            field:
+              type: date
+              display: 'Tour Date'
+              format: 'Y-m-d'
+              width: 50
+          -
+            handle: guests
+            field:
+              type: integer
+              display: 'Number of guests'
+              min: 1
+              max: 20
+              default: 1
+              width: 33
+          -
+            handle: amount_total
+            field:
+              type: integer
+              display: 'Amount (EUR cents)'
+              instructions: 'Final amount charged in cents.'
+              width: 33
+          -
+            handle: status
+            field:
+              type: select
+              display: Status
+              options:
+                pending: Pending
+                paid: Paid
+                cancelled: Cancelled
+                refunded: Refunded
+              default: pending
+              width: 33
+      -
+        display: Customer
+        fields:
+          -
+            handle: customer_name
+            field:
+              type: text
+              display: Name
+              width: 50
+          -
+            handle: customer_email
+            field:
+              type: text
+              display: Email
+              input_type: email
+              width: 50
+          -
+            handle: customer_phone
+            field:
+              type: text
+              display: Phone
+              width: 50
+          -
+            handle: customer_notes
+            field:
+              type: textarea
+              display: 'Notes / Special Requests'
+      -
+        display: Stripe
+        fields:
+          -
+            handle: stripe_session_id
+            field:
+              type: text
+              display: 'Session ID'
+              read_only: true
+          -
+            handle: stripe_payment_intent
+            field:
+              type: text
+              display: 'Payment Intent ID'
+              read_only: true
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        display: Meta
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              display: Title
+              instructions: 'Internal reference.'
+              read_only: true
+          -
+            handle: slug
+            field:
+              type: slug
+              generate: true
+              read_only: true
+              listable: hidden

@@ -48,10 +48,17 @@
                         {{ /if }}
                     </div>
 
-                    <button type="button" data-open-form-modal="booking" class="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all">
-                        <span>Book This Tour</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </button>
+                    {{ if bookable }}
+                        <button type="button" data-open-booking-modal="{{ slug }}" class="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all">
+                            <span>Book This Tour</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </button>
+                    {{ else }}
+                        <button type="button" data-open-form-modal="booking" class="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-white font-semibold text-sm shadow-lg shadow-primary/15 hover:brightness-110 transition-all">
+                            <span>Send an inquiry</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </button>
+                    {{ /if }}
                 </div>
             </div>
         </div>
@@ -165,10 +172,17 @@
                 <h2 class="text-3xl md:text-4xl tracking-[-0.02em] text-white italic" style="text-wrap: balance;">Ready for this tour?</h2>
                 <p class="mt-4 text-white/70 max-w-xl text-lg leading-relaxed">Send us your dates and a bit about who's coming. We'll confirm availability and take care of the rest within 24 hours.</p>
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-                    <button type="button" data-open-form-modal="booking" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-neutral-800 font-semibold text-sm shadow-lg shadow-black/10 hover:bg-white/90 transition-all">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                        <span>Book This Tour</span>
-                    </button>
+                    {{ if bookable }}
+                        <button type="button" data-open-booking-modal="{{ slug }}" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-neutral-800 font-semibold text-sm shadow-lg shadow-black/10 hover:bg-white/90 transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span>Book This Tour</span>
+                        </button>
+                    {{ else }}
+                        <button type="button" data-open-form-modal="booking" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-neutral-800 font-semibold text-sm shadow-lg shadow-black/10 hover:bg-white/90 transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span>Send an inquiry</span>
+                        </button>
+                    {{ /if }}
                     <a href="/#tours" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white/10 text-white font-semibold text-sm border border-white/20 backdrop-blur-sm hover:bg-white/20 transition-all">
                         <span>See other tours</span>
                     </a>
@@ -176,5 +190,16 @@
             </div>
         </div>
     </section>
+
+    {{# Booking modal — included only when this tour is bookable #}}
+    {{ if bookable }}
+        {{ partial:components/booking_modal
+            tour_slug="{slug}"
+            tour_id="{id}"
+            tour_title="{title}"
+            base_price="{base_price ?? 150}"
+            max_guests="{max_guests ?? 4}"
+        }}
+    {{ /if }}
 </main>
 <!-- End: /tours/show.antlers.html -->

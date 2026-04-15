@@ -60,11 +60,8 @@ env:
     REDIS_HOST: funchaltours-redis
     REDIS_PORT: 6379
 
-    MAIL_MAILER: smtp
-    MAIL_HOST: smtp-relay.brevo.com
-    MAIL_SECURE: false
-    MAIL_PORT: 587
-    MAIL_FROM_ADDRESS: "hello@funchaltours.com"
+    MAIL_MAILER: resend
+    MAIL_FROM_ADDRESS: "anamaria@funchaltours.com"
     MAIL_FROM_NAME: "${APP_NAME}"
 
     AWS_DEFAULT_REGION: auto
@@ -111,8 +108,10 @@ env:
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
     - SSH_DEPLOY_KEY
-    - MAIL_USERNAME
-    - MAIL_PASSWORD
+    - RESEND_API_KEY
+    - STRIPE_KEY
+    - STRIPE_SECRET
+    - STRIPE_WEBHOOK_SECRET
 
 # Use accessory services (secrets come from .kamal/secrets).
 accessories:

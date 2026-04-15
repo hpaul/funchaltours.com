@@ -3,6 +3,31 @@ tabs:
     display: General
     sections:
       -
+        display: 'Bookings'
+        instructions: 'Dates when no tours can be booked (holidays, personal time, weather-known bad days).'
+        fields:
+          -
+            handle: blocked_dates
+            field:
+              type: grid
+              display: 'Blocked Dates'
+              add_row: 'Add blocked date'
+              reorderable: true
+              fields:
+                -
+                  handle: date
+                  field:
+                    type: date
+                    format: 'Y-m-d'
+                    display: Date
+                    width: 50
+                -
+                  handle: note
+                  field:
+                    type: text
+                    display: 'Note (internal)'
+                    width: 50
+      -
         display: 'System pages'
         instructions: 'Configure system pages.'
         fields:

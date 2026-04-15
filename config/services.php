@@ -35,4 +35,14 @@ return [
         ],
     ],
 
+    'stripe' => [
+        'key' => env('STRIPE_KEY'),
+        'secret' => env('STRIPE_SECRET'),
+        'webhook_secret' => env('STRIPE_WEBHOOK_SECRET'),
+    ],
+
+    'bookings' => [
+        'notification_email' => env('BOOKING_NOTIFICATION_EMAIL', 'hello@funchaltours.com'),
+    ],
+
 ];

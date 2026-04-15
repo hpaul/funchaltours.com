@@ -44,6 +44,35 @@ tabs:
               folder: tour-stories
               create_folder: true
       -
+        display: 'Booking'
+        fields:
+          -
+            handle: bookable
+            field:
+              type: toggle
+              display: 'Instant Booking Enabled'
+              instructions: 'Show the booking calendar and accept payments for this tour.'
+              default: false
+              width: 33
+          -
+            handle: base_price
+            field:
+              type: integer
+              display: 'Base Price (€ per person)'
+              instructions: 'Price per person in EUR. Discounts are applied automatically by group size.'
+              default: 150
+              min: 0
+              width: 33
+          -
+            handle: max_guests
+            field:
+              type: integer
+              display: 'Max Guests'
+              default: 4
+              min: 1
+              max: 20
+              width: 33
+      -
         display: 'Tour Details'
         fields:
           -
@@ -58,7 +87,7 @@ tabs:
             field:
               type: text
               display: 'Group Size'
-              placeholder: 'e.g. Up to 8 people'
+              placeholder: 'e.g. Up to 4 people'
               width: 33
           -
             handle: meeting_point

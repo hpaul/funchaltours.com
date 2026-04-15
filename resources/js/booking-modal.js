@@ -20,7 +20,9 @@ export default function bookingModal(config) {
     selectedDate: null,
     guests: 1,
     contact: { name: '', email: '', phone: '', notes: '' },
+    errorTitle: '',
     errorMessage: '',
+    errorRecoverable: false,
     isCreatingSession: false,
     stripe: null,
     checkout: null,
@@ -133,10 +135,40 @@ export default function bookingModal(config) {
       if (!this.selectedDate) return
       this.step = 'contact'
     },
+    /** Map a raw server error string to a friendlier title/message/recoverable flag. */
+    setError(raw) {
+      const r = (raw || '').toLowerCase()
+      if (r.includes('already booked')) {
+        this.errorTitle = 'That date just got taken'
+        this.errorMessage = 'Someone else booked this date while you were filling out your details. No payment was taken.'
+        this.errorRecoverable = true
+      } else if (r.includes('unavailable') || r.includes('blocked')) {
+        this.errorTitle = 'That date isn\'t available'
+        this.errorMessage = "I'm not running tours that day. Please pick another one — the calendar will show what's free."
+        this.errorRecoverable = true
+      } else if (r.includes('too many guests')) {
+        this.errorTitle = 'Group size too large'
+        this.errorMessage = 'This tour has a maximum group size. Please reduce the number of guests.'
+        this.errorRecoverable = true
+      } else if (r.includes('not bookable') || r.includes('not found')) {
+        this.errorTitle = 'Tour not available for online booking'
+        this.errorMessage = 'Please send an inquiry instead and we\'ll get you sorted.'
+        this.errorRecoverable = false
+      } else {
+        this.errorTitle = 'Something went wrong'
+        this.errorMessage = raw || 'We couldn\'t start your booking. Please try again in a moment.'
+        this.errorRecoverable = false
+      }
+    },
+    clearError() {
+      this.errorTitle = ''
+      this.errorMessage = ''
+      this.errorRecoverable = false
+    },
     async goToPayment() {
       if (!this.canPay) return
       if (this.isCreatingSession) return // prevent double-click race
-      this.errorMessage = ''
+      this.clearError()
       this.step = 'payment'
       this.isCreatingSession = true
 
@@ -176,7 +208,7 @@ export default function bookingModal(config) {
 
         this.checkout.mount('#stripe-checkout-' + this.tourSlug)
       } catch (e) {
-        this.errorMessage = e.message || 'Something went wrong. Please try again.'
+        this.setError(e.message)
         this.step = 'contact'
       } finally {
         this.isCreatingSession = false

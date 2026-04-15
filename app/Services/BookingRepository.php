@@ -35,14 +35,18 @@ class BookingRepository
      */
     public function bookedDates(string $tourId): array
     {
-        $entries = Entry::query()
-            ->where('collection', 'bookings')
-            ->where('tour', $tourId)
-            ->get();
+        // Statamic's `entries` field stores values as array even with max_items:1.
+        // We fetch all bookings and filter in-memory for reliable matching.
+        $entries = Entry::query()->where('collection', 'bookings')->get();
 
         $releaseAfter = now()->subMinutes(15);
 
         return $entries
+            ->filter(function ($e) use ($tourId) {
+                $tour = $e->value('tour');
+                if (is_array($tour)) return in_array($tourId, $tour, true);
+                return $tour === $tourId;
+            })
             ->filter(function ($e) use ($releaseAfter) {
                 $status = $e->value('status');
                 if ($status === 'paid') return true;
@@ -91,12 +95,13 @@ class BookingRepository
         if ($paymentIntent) $booking->set('stripe_payment_intent', $paymentIntent);
         $booking->save();
 
-        // Send emails (fire and forget — in real prod, queue them)
+        // Queue emails on Redis — only the booking ID is serialized to avoid Entry-serialization issues.
         try {
-            Mail::to($booking->value('customer_email'))->send(new BookingConfirmedCustomer($booking));
-            Mail::to(config('services.bookings.notification_email'))->send(new BookingReceivedOwner($booking));
+            $id = $booking->id();
+            Mail::to($booking->value('customer_email'))->queue(new BookingConfirmedCustomer($id));
+            Mail::to(config('services.bookings.notification_email'))->queue(new BookingReceivedOwner($id));
         } catch (\Throwable $e) {
-            \Log::error('Booking email failed: '.$e->getMessage(), ['booking' => $booking->id()]);
+            \Log::error('Booking email queue failed: '.$e->getMessage(), ['booking' => $booking->id()]);
         }
     }
 

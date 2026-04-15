@@ -1,0 +1,16 @@
+{{#
+    @name Booking Modals
+    @desc Renders a booking modal per bookable tour into the layout so any page can trigger them via data-open-booking-modal="{slug}".
+#}}
+
+<!-- /components/_booking_modals.antlers.html -->
+{{ collection:tours :where="bookable:true" }}
+    {{ partial:components/booking_modal
+        tour_slug="{slug}"
+        tour_id="{id}"
+        tour_title="{title}"
+        base_price="{base_price ?? 150}"
+        max_guests="{max_guests ?? 4}"
+    }}
+{{ /collection:tours }}
+<!-- End: /components/_booking_modals.antlers.html -->

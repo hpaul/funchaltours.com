@@ -61,6 +61,12 @@ return [
             '/site.webmanifest',
             '/sitemap.xml',
             '/sitemaps.xml',
+            // Tour pages carry booking availability — must always reflect live booked dates
+            '/tours',
+            '/tours/*',
+            // Booking endpoints should never be cached
+            '/bookings/*',
+            '/stripe/webhook',
         ],
     ],
 

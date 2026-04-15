@@ -135,6 +135,7 @@ export default function bookingModal(config) {
     },
     async goToPayment() {
       if (!this.canPay) return
+      if (this.isCreatingSession) return // prevent double-click race
       this.errorMessage = ''
       this.step = 'payment'
       this.isCreatingSession = true

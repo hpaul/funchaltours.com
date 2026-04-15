@@ -10,18 +10,20 @@
 #}}
 
 <!-- /components/_booking_modal.antlers.html -->
+{{# JSON config kept in a script tag to avoid attribute-escaping issues (apostrophes, quotes, etc.) #}}
+<script type="application/json" id="booking-config-{{ tour_slug }}">{
+    "tourSlug": {{ tour_slug | to_json | raw }},
+    "tourTitle": {{ tour_title | to_json | raw }},
+    "basePrice": {{ base_price }},
+    "maxGuests": {{ max_guests }},
+    "blockedDates": {{ booking:blocked_dates_json | raw }},
+    "bookedDates": {{ booking:booked_dates_json tour="{tour_id}" | raw }},
+    "discounts": {{ booking:discounts_json | raw }},
+    "stripeKey": {{ config:services:stripe:key | to_json | raw }},
+    "csrf": "{{ csrf_token }}"
+}</script>
 <div
-    x-data='bookingModal({
-        tourSlug: "{{ tour_slug }}",
-        tourTitle: {{ tour_title | to_json | raw }},
-        basePrice: {{ base_price }},
-        maxGuests: {{ max_guests }},
-        blockedDates: {{ booking:blocked_dates_json | raw }},
-        bookedDates: {{ booking:booked_dates_json tour="{tour_id}" | raw }},
-        discounts: {{ booking:discounts_json | raw }},
-        stripeKey: "{{ config:services:stripe:key }}",
-        csrf: "{{ csrf_token }}"
-    })'
+    x-data="bookingModal(JSON.parse(document.getElementById('booking-config-{{ tour_slug }}').textContent))"
     @click.window="if ($event.target.closest('[data-open-booking-modal=\'{{ tour_slug }}\']')) open()"
     @keyup.escape.window="close()"
 >

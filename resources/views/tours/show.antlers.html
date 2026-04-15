@@ -191,15 +191,6 @@
         </div>
     </section>
 
-    {{# Booking modal — included only when this tour is bookable #}}
-    {{ if bookable }}
-        {{ partial:components/booking_modal
-            tour_slug="{slug}"
-            tour_id="{id}"
-            tour_title="{title}"
-            base_price="{base_price ?? 150}"
-            max_guests="{max_guests ?? 4}"
-        }}
-    {{ /if }}
+    {{# Booking modal is rendered site-wide in the layout — see components/booking_modals #}}
 </main>
 <!-- End: /tours/show.antlers.html -->

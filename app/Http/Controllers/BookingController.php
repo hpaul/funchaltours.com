@@ -53,7 +53,7 @@ class BookingController extends Controller
         $session = CheckoutSession::create([
             'ui_mode' => 'embedded',
             'mode' => 'payment',
-            'return_url' => url('/bookings/complete?session_id={CHECKOUT_SESSION_ID}'),
+            'redirect_on_completion' => 'never', // onComplete JS callback handles UI; webhook is authoritative
             'customer_email' => $data['email'],
             'line_items' => [[
                 'price_data' => [

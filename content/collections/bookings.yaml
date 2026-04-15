@@ -1,10 +1,5 @@
 title: Bookings
-template: default
-layout: layout
+# No route / template / layout — bookings are internal records only, managed via the CP.
 revisions: false
 sort_field: booking_date
 sort_dir: desc
-date_behavior:
-  past: public
-  future: public
-date: true

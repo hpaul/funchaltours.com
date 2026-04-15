@@ -167,14 +167,14 @@ export default function bookingModal(config) {
 
         if (!this.stripe) this.stripe = await loadStripe(this.stripeKey)
 
-        this.checkout = await this.stripe.initEmbeddedCheckout({
+        this.checkout = await this.stripe.createEmbeddedCheckoutPage({
           clientSecret: client_secret,
           onComplete: () => {
             this.step = 'confirmed'
           },
         })
 
-        this.checkout.mount('#stripe-checkout')
+        this.checkout.mount('#stripe-checkout-' + this.tourSlug)
       } catch (e) {
         this.errorMessage = e.message || 'Something went wrong. Please try again.'
         this.step = 'contact'
